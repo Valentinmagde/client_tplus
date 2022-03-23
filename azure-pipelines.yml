@@ -1,0 +1,155 @@
+# Node.js with Vue
+# Build a Node.js project that uses Vue.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+
+stages:
+
+- stage: Dev
+  displayName: Development Build
+  jobs:
+  - job: Build
+    displayName: Building sources
+    timeoutInMinutes: 60
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+
+    - task: NodeTool@0
+      displayName: 'Use Node 12.x'
+      inputs:
+        versionSpec: 12.x
+
+    - script: |
+        npm install
+        npm run build-dev
+      displayName: 'Building sources'
+
+    - task: CopyFiles@2
+      displayName: 'Moving .htaccess file'
+      inputs:
+        SourceFolder: '$(Build.Repository.LocalPath)'
+        Contents: '*.htaccess'
+        TargetFolder: '$(Build.Repository.LocalPath)/dist'
+
+    - task: CopyFiles@2
+      displayName: 'Staging files for Drop'
+      inputs:
+        SourceFolder: '$(Build.Repository.LocalPath)'
+        Contents: |
+          **/*
+          !node_modules/**/*
+          !.git/**/*
+          !.e*
+          !.gi*
+          !.DS_Store*
+          !.browser*
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publishing files to Container'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'dev'
+        publishLocation: 'Container'
+
+- stage: Prod
+  # condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
+  jobs:
+  - job: Build
+    timeoutInMinutes: 60
+    displayName: Building sources
+    # timeoutInMinutes: 60
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+
+    - task: NodeTool@0
+      displayName: 'Use Node 10.x'
+      inputs:
+        versionSpec: 10.x
+
+    - script: |
+        npm install vue-acl@4.1.10
+        npm install
+        npm install vue-acl@4.1.10
+        npm run build-production
+      displayName: 'Building sources'
+
+    - task: CopyFiles@2
+      displayName: 'Moving .htaccess file'
+      inputs:
+        SourceFolder: '$(Build.Repository.LocalPath)'
+        Contents: '*.htaccess'
+        TargetFolder: '$(Build.Repository.LocalPath)/dist'
+
+    - task: CopyFiles@2
+      displayName: 'Staging files for Drop'
+      inputs:
+        SourceFolder: '$(Build.Repository.LocalPath)'
+        Contents: |
+          **/*
+          !node_modules/**/*
+          !.git/**/*
+          !.e*
+          !.gi*
+          !.DS_Store*
+          !.browser*
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publishing files to Container'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'prod'
+        publishLocation: 'Container'
+
+# - stage: Staging
+#   dependsOn: Dev
+#   jobs:
+#   - job: Build
+#     displayName: Building sources
+#     pool:
+#       vmImage: 'ubuntu-latest'
+#     steps:
+
+#     - task: NodeTool@0
+#       displayName: 'Use Node 12.x'
+#       inputs:
+#         versionSpec: 12.x
+
+#     - script: |
+#         npm install
+#         npm run build-staging
+#       displayName: 'Build sources for staging'
+
+#     - task: CopyFiles@2
+#       displayName: 'Moving .htaccess file'
+#       inputs:
+#         SourceFolder: '$(Build.Repository.LocalPath)'
+#         Contents: '*.htaccess'
+#         TargetFolder: '$(Build.Repository.LocalPath)/dist'
+
+#     - task: CopyFiles@2
+#       displayName: 'Staging files for Drop'
+#       inputs:
+#         SourceFolder: '$(Build.Repository.LocalPath)'
+#         Contents: |
+#           **/*
+#           !node_modules/**/*
+#           !.git/**/*
+#           !.e*
+#           !.gi*
+#           !.DS_Store*
+#           !.browser*
+#         TargetFolder: '$(Build.ArtifactStagingDirectory)'
+#     - task: PublishBuildArtifacts@1
+#       displayName: 'Publishing files to Container'
+#       inputs:
+#         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#         ArtifactName: 'stage'
+#         publishLocation: 'Container

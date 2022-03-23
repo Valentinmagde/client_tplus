@@ -1,0 +1,23 @@
+export const SET_ACCOUNTS = 'SET_ACCOUNTS'
+export const SET_MEMBER_ACCOUNTS = 'SET_MEMBER_ACCOUNTS'
+export const SET_ALL_ACCOUNTS = 'SET_ALL_ACCOUNTS'
+export const SET_USER_ACCOUNTS = 'SET_USER_ACCOUNTS'
+export const SET_STATISTICS = 'SET_STATISTICS'
+export const SET_ACCOUNT = 'SET_ACCOUNT'
+export const SET_MEMBER_ACTIVITIES = 'SET_MEMBER_ACTIVITIES'
+export const REMOVE_ACCOUNT = 'REMOVE_ACCOUNT'
+
+export const SET_ACTIVITES = 'SET_ACTIVITES'
+export const SET_ALL_ACTIVITIES = 'SET_ALL_ACTIVITIES'
+export const SET_ACTIVITE = 'SET_ACTIVITE'
+export const REMOVE_ACTIVITE = 'REMOVE_ACTIVITE'
+
+export const SET_NOTE = 'SET_NOTE'
+export const SET_NOTES = 'SET_NOTES'
+export const REMOVE_NOTE = 'REMOVE_NOTE'
+
+import '../modules/generics.modules/store/mutation-types'
+import '../modules/events.modules/store/mutation-types'
+import '../modules/solidarities.modules/store/mutation-types'
+import '../modules/tontines.modules/store/mutation-types'
+import '../modules/mutuals.modules/store/mutation-types'

@@ -1,0 +1,10 @@
+export const SET_ROLES = 'SET_ROLES'
+export const SET_ROLE = 'SET_ROLE'
+export const SET_RESET_ROLES = 'SET_RESET_ROLES'
+
+export const SET_MEMBERS ='SET_MEMBERS'
+export const SET_MEMBER ='SET_MEMBER'
+export const SET_USERS_MEMBER ='SET_USERS_MEMBER'
+export const REMOVE_MEMBER ='REMOVE_MEMBER'
+export const SET_USERS ='SET_USERS'
+export const REMOVE_USER_MEMBER ='REMOVE_USER_MEMBER'

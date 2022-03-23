@@ -1,0 +1,5 @@
+export const ADD_EVENT = 'ADD_EVENT'
+export const SET_CALENDAR_EVENTS = 'SET_CALENDAR_EVENTS'
+export const SET_LABELS = 'SET_LABELS'
+export const UPDATE_EVENT = 'UPDATE_EVENT'
+export const REMOVE_EVENT = 'REMOVE_EVENT'

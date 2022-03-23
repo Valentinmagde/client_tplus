@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>loader.css">
+    <!-- <script id="tawkto" src="https://embed.tawk.to/5f4fa79df0e7167d000cdc27/default" async crossorigin="*"></script> -->
+    <title>Tontine.plus - Gestion des associations.</title>
+</head>
+
+<body>
+    <noscript>
+      <strong>We're sorry but Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+      <symbol viewBox="0 0 24 24" id="icon-multiple-circle">
+        <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+        <title>multiple-circle</title>
+        <circle class="cls-1" cx="12" cy="3.75" r="3"/>
+            <path class="cls-1" d="M15.75,14.25V12a3.75,3.75,0,0,0-7.5,0v2.25h1.5l.75,6h3l.75-6Z"/>
+        <circle class="cls-1" cx="4.5" cy="6" r="2.25"/>
+        <path class="cls-1" d="M5.7,9.947A3.753,3.753,0,0,0,.75,13.5v.75h1.5L3,18.75H6l.376-2.256"/>
+        <circle class="cls-1" cx="19.5" cy="6" r="2.25"/>
+        <path class="cls-1" d="M18.3,9.947A3.753,3.753,0,0,1,23.25,13.5v.75h-1.5L21,18.75H18l-.376-2.256"/>
+        <path class="cls-1" d="M23.25,21c0,1.243-5.037,2.25-11.25,2.25S.75,22.243.75,21"/>
+      </symbol>
+
+      <symbol viewBox="0 0 24 24" id="icon-multiple-actions-add">
+        <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+        <title>multiple-actions-add</title>
+        <circle class="cls-1" cx="17.25" cy="17.25" r="6"/><line class="cls-1" x1="17.25" y1="14.25" x2="17.25" y2="20.25"/><line class="cls-1" x1="14.25" y1="17.25" x2="20.25" y2="17.25"/>
+        <circle class="cls-1" cx="6" cy="3.75" r="3"/>
+        <path class="cls-1" d="M10.555,10.888A5.251,5.251,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5l.323-3.233"/>
+        <circle class="cls-1" cx="16.5" cy="3.375" r="2.625"/>
+        <path class="cls-1" d="M20.4,9a4.5,4.5,0,0,0-7.285-.71"/>
+      </symbol>
+      
+      <symbol viewBox="0 0 24 24" id="icon-multiple-actions-view">
+        <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+        <title>multiple-actions-view</title><circle class="cls-1" cx="6" cy="3.75" r="3"/>
+        <path class="cls-1" d="M9.675,9.75A5.251,5.251,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5L8.536,20.4"/>
+        <circle class="cls-1" cx="15.75" cy="15.75" r="5.25"/><line class="cls-1" x1="23.25" y1="23.25" x2="19.463" y2="19.462"/>
+        <circle class="cls-1" cx="16.5" cy="3.375" r="2.625"/>
+        <path class="cls-1" d="M20.4,9a4.5,4.5,0,0,0-7.285-.71"/>
+      </symbol>
+
+      <symbol viewBox="0 0 24 24" id="icon-house-1">
+        <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+        <title>house-1</title>
+        <path class="a" d="M3.753,13.944v8.25h6v-6a1.5,1.5,0,0,1,1.5-1.5h1.5a1.5,1.5,0,0,1,1.5,1.5v6h6v-8.25"/>
+        <path class="a" d="M.753,12.444,10.942,2.255a1.5,1.5,0,0,1,2.122,0L23.253,12.444"/>
+      </symbol>
+
+      <symbol viewBox="0 0 24 24" id="icon-multiple-users-1">
+        <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+        <title>multiple-users-1</title><circle class="cls-1" cx="4.5" cy="6" r="2.25"/><path class="cls-1" d="M4.5,9.75A3.75,3.75,0,0,0,.75,13.5v2.25h1.5l.75,6H6"/><circle class="cls-1" cx="19.5" cy="6" r="2.25"/><path class="cls-1" d="M19.5,9.75a3.75,3.75,0,0,1,3.75,3.75v2.25h-1.5l-.75,6H18"/><circle class="cls-1" cx="12" cy="3.75" r="3"/>
+        <path class="cls-1" d="M17.25,13.5a5.25,5.25,0,0,0-10.5,0v2.25H9l.75,7.5h4.5l.75-7.5h2.25Z"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-saving-bank-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style>
+      </defs><title>saving-bank-1</title><line class="a" x1="1.5" y1="23.25" x2="22.5" y2="23.25"/>
+      <line class="a" x1="1.5" y1="20.25" x2="22.5" y2="20.25"/>
+      <line class="a" x1="3" y1="9.75" x2="3" y2="17.25"/><line class="a" x1="6" y1="9.75" x2="6" y2="17.25"/>
+      <line class="a" x1="10.5" y1="9.75" x2="10.5" y2="17.25"/><line class="a" x1="13.5" y1="9.75" x2="13.5" y2="17.25"/>
+      <line class="a" x1="18" y1="9.75" x2="18" y2="17.25"/><line class="a" x1="21" y1="9.75" x2="21" y2="17.25"/>
+      <path class="a" d="M22.5,6.75H1.5L11.189.988a1.5,1.5,0,0,1,1.622,0Z"/>
+    </symbol>
+    
+    <symbol viewBox="0 0 24 24" id="icon-single-neutral-actions-key">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style>
+      </defs><title>single-neutral-actions-key</title>
+      <path class="cls-1" d="M15.044,18.924a.375.375,0,1,1,0,.531.377.377,0,0,1,0-.531"/>
+      <path class="cls-1" d="M19.086,17.709l3.688-3.687a1.624,1.624,0,1,0-2.3-2.3L16.79,15.413a4.06,4.06,0,1,0,2.3,2.3Z"/>
+      <circle class="cls-1" cx="6" cy="3.75" r="3"/>
+      <path class="cls-1" d="M11.032,12A5.25,5.25,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5L8.775,18"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-single-neutral-actions-subtract">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>single-neutral-actions-subtract</title>
+      <circle class="cls-1" cx="17.25" cy="17.249" r="6"/>
+      <line class="cls-1" x1="14.25" y1="17.249" x2="20.25" y2="17.249"/>
+      <circle class="cls-1" cx="6" cy="3.75" r="3"/>
+      <path class="cls-1" d="M10.555,10.888A5.251,5.251,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5l.323-3.233"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-email-action-unread">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>email-action-unread</title><rect class="a" x="1.5" y="4.75" width="21" height="15" rx="1.5" ry="1.5"/><path class="a" d="M22.161,5.3l-8.144,6.264a3.308,3.308,0,0,1-4.034,0L1.839,5.3"/>
+    </symbol>
+    
+    <symbol viewBox="0 0 24 24" id="icon-single-neutral-actions-edit-1">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>single-neutral-actions-edit-1</title>
+      <path class="cls-1" d="M22.63,14.869,15,22.5l-3.75.75L12,19.5l7.63-7.631a2.116,2.116,0,0,1,2.992,0l.008.009A2.113,2.113,0,0,1,22.63,14.869Z"/>
+      <circle class="cls-1" cx="7.5" cy="4.875" r="4.125"/>
+      <path class="cls-1" d="M13.338,13.919A6.729,6.729,0,0,0,.75,17.25"/>
+    </symbol>
+
+
+    <symbol viewBox="0 0 24 24" id="icon-cash-payment-bills-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}
+      </style></defs><title>cash-payment-bills-1</title><path class="a" d="M13.893,12.75h6.75l.471.792a.966.966,0,0,1,0,1.071l-.3.447a.965.965,0,0,0-.06.967l.5,1a.966.966,0,0,1,0,.864l-.571,1.141a.967.967,0,0,0-.052.737l.167.5a.963.963,0,0,1-.233.988L19.143,22.5h-6.77a2.891,2.891,0,0,0-1.075.207l-1.9.543"/>
+      <path class="a" d="M2.643,17.457l3.242-1.216a1.935,1.935,0,0,0,.967-.8l2.085-4.822a2.894,2.894,0,0,1,.86-.892l.726-.485"/><path class="a" d="M10.946,12.205,9.4,1.373A.544.544,0,0,1,9.939.75h7.552"/><path class="a" d="M14.162,12.75l-.846-8.409a.5.5,0,0,1,.5-.553h6.9a.5.5,0,0,1,.5.577L19.958,12.75"/>
+      <path class="a" d="M17.088,8.621A.375.375,0,1,1,16.713,9a.375.375,0,0,1,.375-.375"/>
+</symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-logout-2">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>logout-2</title><path class="a" d="M20.249,18.754v1.5a1.5,1.5,0,0,1-1.5,1.5h-4.5"/>
+      <path class="a" d="M14.249,3.754h4.5a1.5,1.5,0,0,1,1.5,1.5v1.5"/>
+      <path class="a" d="M10.393,23.246l-9-1.286a.75.75,0,0,1-.644-.742V3.725a.75.75,0,0,1,.593-.734l9-2.221a.75.75,0,0,1,.907.734v21A.75.75,0,0,1,10.393,23.246Z"/>
+      <polyline class="a" points="20.249 9.753 23.249 12.753 14.999 12.753"/>
+      <line class="a" x1="20.25" y1="15.753" x2="23.25" y2="12.753"/>
+      <path class="a" d="M7.874,11.629A.375.375,0,1,0,8.249,12a.374.374,0,0,0-.375-.375h0"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-arrow-right">
+      <defs><style>.cls-1,.cls-2{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}.cls-2{fill-rule:evenodd;}</style></defs>
+      <title>arrow-right</title><line class="cls-1" x1="0.75" y1="12" x2="23.25" y2="12"/><polyline class="cls-2" points="12.75 22.5 23.25 12 12.75 1.5"/>
+    </symbol>
+
+    
+
+    <symbol viewBox="0 0 24 24" id="icon-move-back">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style>
+      </defs><title>move-back</title>
+      <polyline class="a" points="6 4.498 0.75 9.748 6 14.998"/>
+      <path class="a" d="M.75,9.748h21a1.5,1.5,0,0,1,1.5,1.5v9"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-multiple-actions-check-2">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>multiple-actions-check-2</title><circle class="cls-1" cx="6" cy="3.75" r="3"/>
+      <path class="cls-1" d="M10.555,10.888A5.251,5.251,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5l.323-3.233"/>
+      <path class="cls-1" d="M23.25,17.25a6,6,0,1,1-6-6"/>
+      <path class="cls-1" d="M23.25,12.749l-5.47,5.47a.749.749,0,0,1-1.06,0L15,16.5"/>
+      <circle class="cls-1" cx="16.5" cy="3.375" r="2.625"/>
+      <path class="cls-1" d="M20.4,9a4.5,4.5,0,0,0-7.285-.71"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-filter-text">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>filter-text</title><path class="a" d="M14.247,5.25h7.5a1.5,1.5,0,0,1,1.5,1.5v15a1.5,1.5,0,0,1-1.5,1.5H8.247a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <line class="a" x1="12.747" y1="9.75" x2="20.25" y2="9.75"/><line class="a" x1="10.497" y1="14.25" x2="20.25" y2="14.25"/>
+      <line class="a" x1="10.5" y1="18.75" x2="20.25" y2="18.75"/>
+      <path class="a" d="M8.25,9.75v-3l4.189-4.189A1.061,1.061,0,0,0,11.689.75H1.811a1.061,1.061,0,0,0-.75,1.811L5.25,6.75v6Z"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-hammer-wench">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>hammer-wench</title>
+      <path class="a" d="M8.307,10.422,7.259,9.378A4.543,4.543,0,0,1,1.193,3.33L2.618,4.751A1.514,1.514,0,1,0,4.762,2.613L3.338,1.193A4.542,4.542,0,0,1,9.4,7.24l.97.967"/><path class="a" d="M15.319,13.136l1.422,1.418A4.543,4.543,0,0,1,22.807,20.6l-1.425-1.42a1.514,1.514,0,0,0-2.144,2.138l1.424,1.42A4.542,4.542,0,0,1,14.6,16.692l-1.422-1.418"/>
+      <path class="a" d="M1.445,22.6h0a2.233,2.233,0,0,1,0-3.167L6.14,14.747a.75.75,0,0,1,1.059,0l2.118,2.111a.746.746,0,0,1,0,1.056L4.621,22.6A2.251,2.251,0,0,1,1.445,22.6Z"/><path class="a" d="M16.586,1.188l6.221,6.2a1.489,1.489,0,0,1,0,2.111L20.69,11.612a1.5,1.5,0,0,1-2.118,0l-6.221-6.2a1.489,1.489,0,0,1,0-2.111l2.117-2.111A1.5,1.5,0,0,1,16.586,1.188Z"/>
+      <line class="a" x1="15.527" y1="8.577" x2="8.158" y2="15.703"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-single-man">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>single-man</title><circle class="cls-1" cx="12" cy="3.75" r="3"/>
+      <path class="cls-1" d="M17.25,13.5a5.25,5.25,0,0,0-10.5,0v2.25H9l.75,7.5h4.5l.75-7.5h2.25Z"/>
+      <line class="cls-1" x1="12" y1="8.25" x2="12" y2="14.25"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-calendar">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>calendar</title><rect class="a" x="0.752" y="3.75" width="22.5" height="19.5" rx="1.5" ry="1.5"/>
+      <line class="a" x1="0.752" y1="9.75" x2="23.252" y2="9.75"/><line class="a" x1="6.752" y1="6" x2="6.752" y2="0.75"/>
+      <line class="a" x1="17.252" y1="6" x2="17.252" y2="0.75"/>
+    </symbol>
+
+    
+
+    <symbol viewBox="0 0 24 24" id="icon-calendar-refresh">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>calendar-refresh</title>
+      <path class="a" d="M8.25,17.25h-6a1.5,1.5,0,0,1-1.5-1.5v-12a1.5,1.5,0,0,1,1.5-1.5h13.5a1.5,1.5,0,0,1,1.5,1.5v4.5"/>
+      <line class="a" x1="0.75" y1="6.75" x2="17.25" y2="6.75"/><line class="a" x1="5.25" y1="3.75" x2="5.25" y2="0.75"/>
+      <line class="a" x1="12.75" y1="3.75" x2="12.75" y2="0.75"/>
+      <polyline class="a" points="15 18.75 11.25 18.75 11.25 22.5"/>
+      <path class="a" d="M22.667,19.484a5.573,5.573,0,0,1-10.74-.734"/>
+      <polyline class="a" points="19.5 15.75 23.25 15.75 23.25 12"/>
+      <path class="a" d="M11.833,15.017a5.572,5.572,0,0,1,10.74.733"/>
+    </symbol>
+    
+
+    <symbol viewBox="0 0 24 24" id="icon-tool-box">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>tool-box</title>
+      <rect class="a" x="0.75" y="6.751" width="22.5" height="15" rx="1.5" ry="1.5"/>
+      <path class="a" d="M16.5,6.751a4.5,4.5,0,0,0-9,0"/>
+      <line class="a" x1="0.75" y1="12.751" x2="10.5" y2="12.751"/>
+      <line class="a" x1="13.5" y1="12.751" x2="23.25" y2="12.751"/>
+      <path class="a" d="M12,15a1.5,1.5,0,0,1-1.5-1.5V12a1.5,1.5,0,1,1,3,0v1.5A1.5,1.5,0,0,1,12,15Z"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-single-neutral-news">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>single-neutral-news</title><circle class="cls-1" cx="15" cy="7.875" r="2.625"/>
+      <path class="cls-1" d="M10.5,15.75a4.5,4.5,0,0,1,9,0"/>
+      <rect class="cls-1" x="1.5" y="2.25" width="21" height="16.5" rx="1.5" ry="1.5"/>
+      <line class="cls-1" x1="12" y1="18.75" x2="12" y2="21.75"/>
+      <line class="cls-1" x1="4.5" y1="21.75" x2="19.5" y2="21.75"/>
+      <rect class="cls-1" x="4.5" y="5.25" width="4.5" height="4.5"/> 
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-task-list-edit-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>task-list-edit-1</title>
+      <path class="a" d="M22.63,14.88,15,22.51l-3.75.75L12,19.51l7.631-7.63a2.115,2.115,0,0,1,2.991,0l.009.009A2.115,2.115,0,0,1,22.63,14.88Z"/>
+      <line class="a" x1="5.249" y1="10.51" x2="14.249" y2="10.51"/>
+      <line class="a" x1="5.249" y1="14.26" x2="11.249" y2="14.26"/>
+      <line class="a" x1="5.249" y1="18.01" x2="8.249" y2="18.01"/>
+      <path class="a" d="M8.249,23.26h-6a1.5,1.5,0,0,1-1.5-1.5V6.01a1.5,1.5,0,0,1,1.5-1.5H6a3.75,3.75,0,0,1,7.5,0h3.75a1.5,1.5,0,0,1,1.5,1.5V8.26"/>
+      <path class="a" d="M9.749,3.76a.375.375,0,1,1-.375.375.374.374,0,0,1,.375-.375"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-keyboard-arrow-previous">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>keyboard-arrow-previous</title>
+      <path class="a" d="M22.63,14.88,15,22.51l-3.75.75L12,19.51l7.631-7.63a2.115,2.115,0,0,1,2.991,0l.009.009A2.115,2.115,0,0,1,22.63,14.88Z"/>
+      <line class="a" x1="5.249" y1="10.51" x2="14.249" y2="10.51"/>
+      <line class="a" x1="5.249" y1="14.26" x2="11.249" y2="14.26"/>
+      <line class="a" x1="5.249" y1="18.01" x2="8.249" y2="18.01"/>
+      <path class="a" d="M8.249,23.26h-6a1.5,1.5,0,0,1-1.5-1.5V6.01a1.5,1.5,0,0,1,1.5-1.5H6a3.75,3.75,0,0,1,7.5,0h3.75a1.5,1.5,0,0,1,1.5,1.5V8.26"/>
+      <path class="a" d="M9.749,3.76a.375.375,0,1,1-.375.375.374.374,0,0,1,.375-.375"/>
+    </symbol>
+
+
+    <symbol viewBox="0 0 24 24" id="icon-saving-bag-increase">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>saving-bag-increase</title>
+      <path class="a" d="M14.16,16a.638.638,0,0,0-.66.609V21.4a.628.628,0,0,0,.65.6h8.44a.638.638,0,0,0,.66-.609V16.75a.784.784,0,0,0-.813-.75Z"/>
+      <path class="a" d="M18.375,18.631A.369.369,0,1,1,18,19a.372.372,0,0,1,.375-.369"/>
+      <path class="a" d="M13.5,18.853A7.289,7.289,0,0,1,7.5,22C4.111,22,.75,19.482.75,16.375c0-3.068,2.659-6.458,4.705-7.875C4.865,7.2,4.39,6.175,4.02,5.385A1.5,1.5,0,0,1,5.379,3.25H10.5"/>
+      <path class="a" d="M11.8,10.646A10.1,10.1,0,0,1,14.237,16"/>
+      <path class="a" d="M5.829,17.844a2.224,2.224,0,0,0,1.858.875c1.139,0,2.063-.693,2.063-1.547s-.924-1.546-2.063-1.546-2.062-.693-2.062-1.548.924-1.547,2.062-1.547a2.221,2.221,0,0,1,1.858.875"/>
+      <line class="a" x1="7.687" y1="18.719" x2="7.687" y2="19.75"/>
+      <line class="a" x1="7.687" y1="11.5" x2="7.687" y2="12.531"/>
+      <polyline class="a" points="23.25 5.286 23.25 1.75 19.714 1.75"/>
+      <path class="a" d="M23.25,1.753,20,5a1.444,1.444,0,0,1-1.438.363l-3.671-.981a1.449,1.449,0,0,0-1.4.375L9.745,8.507"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-saving-bank-cash">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>saving-bank-cash</title><line class="a" x1="5.25" y1="23.25" x2="23.25" y2="23.25"/>
+      <path class="a" d="M15.575,6.572l7.406,4.937a.6.6,0,0,1,.269.5V12.9a.6.6,0,0,1-.6.6H5.25"/>
+      <rect class="a" x="2.625" y="1.875" width="6.75" height="10.5" rx="0.887" ry="0.887" transform="translate(-1.125 13.125) rotate(-90)"/>
+      <path class="a" d="M4.443,3.75l.3-2.009A1.163,1.163,0,0,1,6.066.763l6.769,1.013A1.163,1.163,0,0,1,13.813,3.1l-.529,3.531a1.187,1.187,0,0,1-2.034.625"/>
+      <path class="a" d="M6,6.75a.375.375,0,1,1-.375.375A.375.375,0,0,1,6,6.75"/>
+      <line class="a" x1="21" y1="23.25" x2="21" y2="13.5"/>
+      <line class="a" x1="16.5" y1="23.25" x2="16.5" y2="13.5"/>
+      <line class="a" x1="12" y1="23.25" x2="12" y2="13.5"/>
+      <line class="a" x1="7.5" y1="23.25" x2="7.5" y2="13.5"/>
+    </symbol>
+    
+    <symbol viewBox="0 0 24 24" id="icon-shape-cube">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}
+      </style></defs><title>shape-cube</title>
+      <path class="a" d="M16.629,23.25a1.5,1.5,0,0,0,1.06-.439l5.122-5.122a1.5,1.5,0,0,0,.439-1.06V2.25a1.5,1.5,0,0,0-1.5-1.5H7.371a1.5,1.5,0,0,0-1.06.439L1.189,6.311A1.5,1.5,0,0,0,.75,7.371V21.75a1.5,1.5,0,0,0,1.5,1.5Z"/>
+      <line class="a" x1="17.25" y1="23.115" x2="17.25" y2="6.75"/><line class="a" x1="6.75" y1="17.25" x2="23.115" y2="17.25"/><line class="a" x1="1.189" y1="22.811" x2="6.75" y2="17.25"/>
+      <line class="a" x1="17.25" y1="6.75" x2="22.811" y2="1.189"/><line class="a" x1="17.25" y1="6.75" x2="0.885" y2="6.75"/><line class="a" x1="6.75" y1="0.885" x2="6.75" y2="17.25"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-arrow-left">
+      <defs><style>.cls-1,.cls-2{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}.cls-2{fill-rule:evenodd;}</style></defs>
+      <title>arrow-left</title><line class="cls-1" x1="23.25" y1="12" x2="0.75" y2="12"/><polyline class="cls-2" points="11.25 1.5 0.75 12 11.25 22.5"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-view-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>view-1</title>
+      <path class="a" d="M12,5.251C7.969,5.183,3.8,8,1.179,10.885a1.663,1.663,0,0,0,0,2.226C3.743,15.935,7.9,18.817,12,18.748c4.1.069,8.258-2.813,10.824-5.637a1.663,1.663,0,0,0,0-2.226C20.2,8,16.031,5.183,12,5.251Z"/>
+      <path class="a" d="M15.75,12A3.75,3.75,0,1,1,12,8.249,3.749,3.749,0,0,1,15.75,12Z"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-cog-desktop">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>cog-desktop</title><path class="a" d="M13.5,18.751a8.934,8.934,0,0,0,1.5,4.5H9a8.934,8.934,0,0,0,1.5-4.5"/>
+      <line class="a" x1="6.75" y1="23.251" x2="17.25" y2="23.251"/>
+      <line class="a" x1="0.75" y1="15.751" x2="23.25" y2="15.751"/>
+      <path class="a" d="M16.5.751h5.25a1.5,1.5,0,0,1,1.5,1.5v15a1.5,1.5,0,0,1-1.5,1.5H2.25a1.5,1.5,0,0,1-1.5-1.5v-15a1.5,1.5,0,0,1,1.5-1.5H7.5"/>
+      <circle class="a" cx="12" cy="7.201" r="3.75"/>
+      <line class="a" x1="12" y1="3.451" x2="12" y2="1.651"/>
+      <line class="a" x1="12" y1="12.751" x2="12" y2="10.951"/>
+      <line class="a" x1="15.75" y1="7.201" x2="17.55" y2="7.201"/>
+      <line class="a" x1="6.45" y1="7.201" x2="8.25" y2="7.201"/>
+      <line class="a" x1="8.459" y1="3.242" x2="9.566" y2="4.348"/>
+      <line class="a" x1="15.541" y1="3.242" x2="14.434" y2="4.348"/>
+      <line class="a" x1="8.459" y1="11.16" x2="9.566" y2="10.053"/>
+      <line class="a" x1="15.541" y1="11.16" x2="14.434" y2="10.053"/>
+      <path class="a" d="M12,6.451a.75.75,0,1,1-.75.75.75.75,0,0,1,.75-.75"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-pencil-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>pencil-1</title>
+      <path class="a" d="M22.19,1.81a3.638,3.638,0,0,0-5.169.035l-14.5,14.5L.75,23.25l6.905-1.771,14.5-14.5A3.638,3.638,0,0,0,22.19,1.81Z"/>
+      <line class="a" x1="16.606" y1="2.26" x2="21.74" y2="7.394"/>
+      <line class="a" x1="14.512" y1="4.354" x2="19.646" y2="9.488"/>
+      <line class="a" x1="2.521" y1="16.345" x2="7.66" y2="21.474"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-money-bags">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>money-bags</title>
+      <path class="a" d="M14.045,7.988C16.091,9.4,18.75,12.8,18.75,15.863c0,3.107-3.361,5.625-6.75,5.625S5.25,18.97,5.25,15.863C5.25,12.8,7.909,9.4,9.955,7.988L8.4,4.281a.9.9,0,0,1,.416-1.27,10.2,10.2,0,0,1,6.363,0A.9.9,0,0,1,15.6,4.281Z"/>
+      <line class="a" x1="9.955" y1="7.988" x2="14.045" y2="7.988"/>
+      <path class="a" d="M4.5,20.738c-3,0-3.75-3-3.75-5.114A7.512,7.512,0,0,1,4.33,9.488L3.066,7.665a.75.75,0,0,1,.616-1.177H6"/>
+      <path class="a" d="M10.329,17.332a2.225,2.225,0,0,0,1.858.876c1.139,0,2.063-.693,2.063-1.548s-.924-1.546-2.063-1.546-2.062-.693-2.062-1.548.924-1.547,2.062-1.547a2.221,2.221,0,0,1,1.858.875"/>
+      <line class="a" x1="12.187" y1="18.208" x2="12.187" y2="19.238"/>
+      <line class="a" x1="12.187" y1="10.988" x2="12.187" y2="12.019"/>
+      <path class="a" d="M19.5,20.738c3,0,3.75-3,3.75-5.114a7.512,7.512,0,0,0-3.58-6.136l1.264-1.823a.75.75,0,0,0-.616-1.177H18"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-saving-piggy-coins">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>saving-piggy-coins</title>
+      <path class="a" d="M4.363,8.192A9.019,9.019,0,0,1,12.75,2.918a9.628,9.628,0,0,1,2.213.282L16.946.926a.749.749,0,0,1,1.224.485l.356,3.471A8.261,8.261,0,0,1,21.4,8.945H23.25v6.028H20.76a8.433,8.433,0,0,1-2.01,2.4,8.91,8.91,0,0,1-2.925,1.611"/>
+      <ellipse class="a" cx="6.75" cy="14.25" rx="6" ry="3"/>
+      <path class="a" d="M12.75,14.25v6c0,1.657-2.686,3-6,3s-6-1.343-6-3v-6"/>
+      <path class="a" d="M.75,17.25c0,1.657,2.686,3,6,3s6-1.343,6-3"/>
+      <path class="a" d="M16.875,7.5a.375.375,0,1,0,.375.375.375.375,0,0,0-.375-.375"/>
+      <line class="a" x1="17.957" y1="17.956" x2="18.75" y2="21"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-multiple-actions-heart">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>multiple-actions-heart</title><circle class="cls-1" cx="6" cy="3.75" r="3"/>
+      <path class="cls-1" d="M10.743,11.245A5.251,5.251,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5l.522-5.216"/>
+      <path class="cls-1" d="M17.25,23.25l-5.113-5.335a3.025,3.025,0,0,1-.567-3.492h0a3.025,3.025,0,0,1,4.845-.787l.835.835.836-.835a3.025,3.025,0,0,1,4.845.787h0a3.025,3.025,0,0,1-.567,3.492Z"/>
+      <circle class="cls-1" cx="16.5" cy="3.375" r="2.625"/>
+      <path class="cls-1" d="M20.4,9a4.5,4.5,0,0,0-7.285-.71"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-team-idea">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>team-idea</title>
+      <circle class="a" cx="3.375" cy="18.478" r="2.625"/>
+      <path class="a" d="M6.581,23.2A4.5,4.5,0,0,0,.75,22.7"/>
+      <circle class="a" cx="20.625" cy="18.478" r="2.625"/>
+      <path class="a" d="M17.511,23.105A4.5,4.5,0,0,1,23.25,22.7"/>
+      <circle class="a" cx="12" cy="17.728" r="3.375"/>
+      <path class="a" d="M14.723,23.25a6.054,6.054,0,0,0-5.392-.027"/>
+      <path class="a" d="M15.75,4.6A3.75,3.75,0,1,0,10.5,8.036V9.853h3V8.036A3.747,3.747,0,0,0,15.75,4.6Z"/>
+      <line class="a" x1="10.5" y1="12.103" x2="13.5" y2="12.103"/>
+      <line class="a" x1="19.811" y1="5.25" x2="21.311" y2="5.25"/>
+      <line class="a" x1="19.5" y1="8.689" x2="20.561" y2="9.75"/>
+      <line class="a" x1="19.5" y1="1.81" x2="20.561" y2="0.75"/>
+      <line class="a" x1="4.189" y1="5.25" x2="2.689" y2="5.25"/>
+      <line class="a" x1="4.5" y1="8.689" x2="3.439" y2="9.75"/>
+      <line class="a" x1="4.5" y1="1.81" x2="3.439" y2="0.75"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-cash-payment-bill-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>cash-payment-bill-1</title>
+      <path class="a" d="M3.818,16.125l2.331-1.043a2.044,2.044,0,0,0,.883-1.365L7.4,11.523l3.151-2.251a1.022,1.022,0,0,0,.428-.832V7.86A1.022,1.022,0,0,0,9.611,6.9L5.41,8.4a9.5,9.5,0,0,0-2.89,1.65L.75,11.523"/>
+      <path class="a" d="M.75,21.75l2.3-1.683a2.871,2.871,0,0,1,1.7-.567h6.5"/>
+      <path class="a" d="M11.25,19.5h3.592a1.021,1.021,0,0,0,.971-.676L17.649,13.5"/>
+      <path class="a" d="M13.329,9.344a2.224,2.224,0,0,0,1.858.875c1.139,0,2.063-.693,2.063-1.547s-.924-1.546-2.063-1.546-2.062-.693-2.062-1.548.924-1.547,2.062-1.547a2.221,2.221,0,0,1,1.858.875"/>
+      <line class="a" x1="15.187" y1="10.219" x2="15.187" y2="11.25"/>
+      <line class="a" x1="15.187" y1="3" x2="15.187" y2="4.031"/>
+      <path class="a" d="M13.5,16.5H11.25A1.5,1.5,0,0,0,9.75,18h0a1.5,1.5,0,0,0,1.5,1.5"/>
+      <path class="a" d="M18,13.5H13.5A1.5,1.5,0,0,0,12,15h0a1.5,1.5,0,0,0,1.5,1.5h3.114"/>
+      <path class="a" d="M18.75,2.25h3a1.5,1.5,0,0,1,1.5,1.5V12a1.5,1.5,0,0,1-1.5,1.5H10.5"/>
+      <path class="a" d="M5.25,5.25V3.75a1.5,1.5,0,0,1,1.5-1.5H12"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-multiple-home">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>multiple-home</title><circle class="cls-1" cx="7.5" cy="14.25" r="3"/>
+      <path class="cls-1" d="M11.25,23.25V22.5a3.75,3.75,0,0,0-7.5,0v.75"/>
+      <circle class="cls-1" cx="16.5" cy="14.25" r="3"/>
+      <path class="cls-1" d="M20.25,23.25V22.5a3.75,3.75,0,0,0-6.4-2.652"/>
+      <polyline class="cls-1" points="23.25 23.25 23.25 12 12 0.75 0.75 12 0.75 23.25"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-calendar-check-1">
+      <defs><style>.a,.b{fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:1.5px;}.a{stroke-linecap:round;}</style></defs>
+      <title>calendar-check-1</title><circle class="a" cx="17.25" cy="17.25" r="6"/>
+      <path class="a" d="M19.924,15.506l-2.905,3.873a.752.752,0,0,1-1.131.081l-1.5-1.5"/>
+      <path class="a" d="M8.25,17.25h-6a1.5,1.5,0,0,1-1.5-1.5V3.765a1.5,1.5,0,0,1,1.5-1.5h13.5a1.5,1.5,0,0,1,1.5,1.5V8.25"/>
+      <line class="b" x1="0.75" y1="6.75" x2="17.25" y2="6.75"/>
+      <line class="a" x1="5.243" y1="3.75" x2="5.243" y2="0.75"/>
+      <line class="a" x1="12.743" y1="3.75" x2="12.743" y2="0.75"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-gauge-dashboard">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>gauge-dashboard</title>
+      <path class="a" d="M12,4.5A11.336,11.336,0,0,0,.75,15.923V18a1.5,1.5,0,0,0,1.5,1.5h19.5a1.5,1.5,0,0,0,1.5-1.5v-2.08A11.336,11.336,0,0,0,12,4.5Z"/><path class="a" d="M9,19.5v-.75a3,3,0,0,1,6,0v.75"/>
+      <line class="a" x1="14.25" y1="9.003" x2="12" y2="15.753"/>
+      <line class="a" x1="4.875" y1="15.003" x2="4.875" y2="15.003"/>
+      <path class="a" d="M4.875,15a.375.375,0,1,0,.375.375A.375.375,0,0,0,4.875,15"/>
+      <line class="a" x1="6.375" y1="11.253" x2="6.375" y2="11.253"/>
+      <path class="a" d="M6.375,11.253a.375.375,0,1,0,.375.375.375.375,0,0,0-.375-.375"/>
+      <line class="a" x1="19.125" y1="15.003" x2="19.125" y2="15.003"/>
+      <path class="a" d="M19.125,15a.375.375,0,1,0,.375.375A.375.375,0,0,0,19.125,15"/>
+      <line class="a" x1="17.625" y1="11.253" x2="17.625" y2="11.253"/>
+      <path class="a" d="M17.625,11.253a.375.375,0,1,0,.375.375.375.375,0,0,0-.375-.375"/>
+      <line class="a" x1="9.375" y1="8.253" x2="9.375" y2="8.253"/>
+      <path class="a" d="M9.375,8.253a.375.375,0,1,0,.375.375.375.375,0,0,0-.375-.375"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-accounting-coins">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>accounting-coins</title><circle class="a" cx="15.75" cy="8.25" r="7.5"/>
+      <path class="a" d="M6.375,14.092a1.341,1.341,0,0,0,.843,1.245l2.064.826a1.342,1.342,0,0,1-.5,2.587H6.75"/>
+      <line class="a" x1="8.25" y1="20.25" x2="8.25" y2="18.75"/>
+      <path class="a" d="M5.281,8.867a7.5,7.5,0,1,0,9.853,9.852"/>
+      <path class="a" d="M17.25,5.25H15.217a1.342,1.342,0,0,0-.5,2.587l2.064.826a1.342,1.342,0,0,1-.5,2.587H14.25"/>
+      <line class="a" x1="15.75" y1="5.25" x2="15.75" y2="3.75"/>
+      <line class="a" x1="15.75" y1="12.75" x2="15.75" y2="11.25"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-task-list-check-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>task-list-check-1</title>
+      <line class="a" x1="5.25" y1="10.511" x2="10.5" y2="10.511"/>
+      <line class="a" x1="5.25" y1="14.261" x2="8.25" y2="14.261"/>
+      <line class="a" x1="5.25" y1="18.011" x2="8.25" y2="18.011"/>
+      <path class="a" d="M9.75,23.261H2.25a1.5,1.5,0,0,1-1.5-1.5V6.011a1.5,1.5,0,0,1,1.5-1.5H6a3.75,3.75,0,0,1,7.5,0h3.75a1.5,1.5,0,0,1,1.5,1.5v2.25"/>
+      <path class="a" d="M9.75,3.761a.375.375,0,1,1-.375.375.375.375,0,0,1,.375-.375"/>
+      <circle class="a" cx="17.25" cy="17.261" r="6"/>
+      <path class="a" d="M19.924,15.516,17.019,19.39a.751.751,0,0,1-1.131.08l-1.5-1.5"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-surveillance-360-camera">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>surveillance-360-camera</title><circle class="a" cx="11.5" cy="7.5" r="6.75"/>
+      <circle class="a" cx="11.5" cy="7.5" r="3"/>
+      <path class="a" d="M10,17.25h0A2.25,2.25,0,0,0,7.75,19.5v2.25"/>
+      <circle class="a" cx="9.25" cy="21.75" r="1.5"/>
+      <path class="a" d="M2.5,18.362A1.5,1.5,0,1,1,3.949,20.25a1.5,1.5,0,1,1-1.445,1.9"/>
+      <path class="a" d="M16,21.75a1.5,1.5,0,0,1-3,0v-3a1.5,1.5,0,0,1,3,0Z"/>
+      <polyline class="a" points="19.75 17.25 19.75 20.25 22.75 20.25"/>
+      <path class="a" d="M19.75,19.926A5.457,5.457,0,0,0,22,15.75a5.245,5.245,0,0,0-1.822-3.8"/>
+      <path class="a" d="M2.822,11.949A5.245,5.245,0,0,0,1,15.75"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-network-sync">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>network-sync</title><polyline class="a" points="15 18.75 11.25 18.75 11.25 22.5"/>
+      <path class="a" d="M22.667,19.483a5.572,5.572,0,0,1-10.74-.733"/>
+      <polyline class="a" points="19.5 15.75 23.25 15.75 23.25 12"/>
+      <path class="a" d="M11.833,15.017a5.572,5.572,0,0,1,10.74.733"/>
+      <path class="a" d="M7.873,19.881A26.129,26.129,0,0,1,6.75,12c0-4.633,1.018-8.688,2.539-10.921"/>
+      <line class="a" x1="0.775" y1="11.25" x2="10.5" y2="11.25"/>
+      <line class="a" x1="2.999" y1="5.25" x2="21" y2="5.25"/>
+      <line class="a" x1="2.048" y1="17.25" x2="8.25" y2="17.25"/>
+      <path class="a" d="M14.711,1.079a16.184,16.184,0,0,1,2.2,6.416"/>
+      <path class="a" d="M7.96,22.5A11.252,11.252,0,1,1,22.608,8.245"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-circle-pad-finger">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>circle-pad-finger</title>
+      <path class="a" d="M10.25,23.247,6.4,18.115a1.534,1.534,0,0,1-.05-1.77h0a1.534,1.534,0,0,1,2.195-.376l1.7,1.278V7.5A1.5,1.5,0,0,1,11.75,6h0a1.5,1.5,0,0,1,1.5,1.5v6l4.174.928a3,3,0,0,1,2.337,3.2l-.511,5.622Z"/>
+      <path class="a" d="M6.5,13.6A7.5,7.5,0,1,1,18.247,12"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-hand-expand">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>hand-expand</title>
+      <path class="a" d="M7.863,20.258l-4.6-5.108a1.564,1.564,0,0,1-.139-1.913h0a1.564,1.564,0,0,1,2.105-.473L7.7,14.247l-1.3-9.084A1.585,1.585,0,0,1,7.591,3.4h0A1.585,1.585,0,0,1,9.53,4.628L10.7,10.5V3.747a1.5,1.5,0,0,1,1.5-1.5h0a1.5,1.5,0,0,1,1.5,1.5V10.5l1.182-5.911a1.545,1.545,0,0,1,1.889-1.2h0a1.544,1.544,0,0,1,1.14,1.8L16.7,11.247,19,6.657a1.391,1.391,0,0,1,2.016-.536h0a1.392,1.392,0,0,1,.52,1.674l-2.259,5.648a4.491,4.491,0,0,0-.322,1.671v2.133a4.5,4.5,0,0,1-1.8,3.6h0a4.5,4.5,0,0,1-2.7.9H11.208A4.5,4.5,0,0,1,7.863,20.258Z"/>
+    </symbol>
+  
+    <symbol viewBox="0 0 24 24" id="icon-login-key-2">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>login-key-2</title>
+      <path class="a" d="M8.25,18V21.1A1.518,1.518,0,0,0,9.75,22.5h12a1.557,1.557,0,0,0,1.5-1.607V3.111A1.556,1.556,0,0,0,21.75,1.5h-12a1.62,1.62,0,0,0-1.5,1.808V6"/>
+      <polyline class="a" points="6.75 12.004 18.75 12.004 18.75 15.004"/>
+      <line class="a" x1="15.75" y1="15.004" x2="15.75" y2="12.004"/><circle class="a" cx="3.75" cy="12.004" r="3"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="icon-single-neutral-actions-home">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>single-neutral-actions-home</title><circle class="cls-1" cx="6" cy="3.75" r="3"/>
+      <path class="cls-1" d="M10.555,10.888A5.251,5.251,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5l.323-3.232"/>
+      <path class="cls-1" d="M12.75,15.948v5.8a1.5,1.5,0,0,0,1.5,1.5h6a1.5,1.5,0,0,0,1.5-1.5v-5.8"/>
+      <path class="cls-1" d="M11.25,17.26l4.518-3.953a2.249,2.249,0,0,1,2.964,0L23.25,17.26"/>
+      <path class="cls-1" d="M18.75,23.25h-3v-3a1.5,1.5,0,0,1,3,0Z"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-pin-location-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>pin-location-1</title><circle class="a" cx="12" cy="7.5" r="3"/>
+      <path class="a" d="M12,.75A6.75,6.75,0,0,1,18.75,7.5c0,3.251-5.132,10.527-6.446,12.337a.377.377,0,0,1-.608,0C10.382,18.027,5.25,10.751,5.25,7.5A6.75,6.75,0,0,1,12,.75Z"/>
+      <path class="a" d="M17.979,17.784c2.732.541,4.521,1.444,4.521,2.466,0,1.657-4.7,3-10.5,3s-10.5-1.343-10.5-3c0-1.02,1.781-1.921,4.5-2.463"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-cash-payment-coin-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>cash-payment-coin-1</title>
+      <path class="a" d="M7.457,9.228l2.872-2.713a1.957,1.957,0,0,1,1.087-.33H15.1a1.954,1.954,0,0,1,1.674.945l.35.578A1.957,1.957,0,0,1,17.2,9.6l-.317.634a1.955,1.955,0,0,1-2.133,1.043l-3.162-.632a.647.647,0,0,0-.488.1,1.937,1.937,0,0,0-.859,1.811.754.754,0,0,0,.478.629l5.349,2.057a1.956,1.956,0,0,0,1.286.041l5.709-1.783"/>
+      <path class="a" d="M23.062,5.771,18.7,3.084A1.965,1.965,0,0,0,17.555,2.8l-7.022.413A1.957,1.957,0,0,0,9.348,3.7l-3.5,3.115a1.948,1.948,0,0,0-.556.843L4.617,9.671"/>
+      <path class="a" d="M8.437,12.206H6.4a1.341,1.341,0,0,0-.5,2.587l2.063.826a1.342,1.342,0,0,1-.5,2.587H5.437"/><line class="a" x1="6.937" y1="12.206" x2="6.937" y2="11.456"/><line class="a" x1="6.937" y1="18.956" x2="6.937" y2="18.206"/>
+      <path class="a" d="M8.224,9.344a5.992,5.992,0,1,0,4.588,4.636"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-cash-payment-coin">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>cash-payment-coin</title>
+      <line class="a" x1="0.75" y1="14.25" x2="0.75" y2="23.25"/>
+      <path class="a" d="M.75,21.75h16.5a3,3,0,0,0-3-3H10.5a3,3,0,0,0-3-3H.75"/>
+      <line class="a" x1="6.75" y1="18.75" x2="10.5" y2="18.75"/>
+      <path class="a" d="M18.75,3.75H16.717a1.342,1.342,0,0,0-.5,2.587l2.064.826a1.342,1.342,0,0,1-.5,2.587H15.75"/>
+      <line class="a" x1="17.25" y1="3.75" x2="17.25" y2="3"/><line class="a" x1="17.25" y1="10.5" x2="17.25" y2="9.75"/>
+      <circle class="a" cx="17.25" cy="6.75" r="6"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-saving-piggy-coins-alternate">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>saving-piggy-coins-alternate</title>
+      <path class="a" d="M23.25,10.5a3,3,0,0,1-3,3"/>
+      <path class="a" d="M6,6.8A8.318,8.318,0,0,0,2.6,11.25H.75v6H3.24a8.467,8.467,0,0,0,2.01,2.372V22.5a.75.75,0,0,0,.75.75H7.5a.75.75,0,0,0,.75-.75V21.259a9.512,9.512,0,0,0,6,.011V22.5a.75.75,0,0,0,.75.75h1.5a.75.75,0,0,0,.75-.75V19.637a7.941,7.941,0,0,0,3-6.137,8.053,8.053,0,0,0-3.757-6.706"/>
+      <path class="a" d="M8.25,7.5a6.763,6.763,0,0,1,6,0"/>
+      <circle class="a" cx="11.25" cy="3.75" r="3"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-office-file-pdf-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>office-file-pdf-1</title>
+      <path class="a" d="M5.246,23.248h-3a1.5,1.5,0,0,1-1.5-1.5V2.248a1.5,1.5,0,0,1,1.5-1.5H12.875a1.5,1.5,0,0,1,1.061.44l5.871,5.871a1.5,1.5,0,0,1,.439,1.061v4.628"/>
+      <path class="a" d="M20.246,8.248h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <line class="a" x1="8.246" y1="23.248" x2="8.246" y2="15.748"/>
+      <path class="a" d="M8.246,15.748H9a2.25,2.25,0,0,1,0,4.5h-.75"/>
+      <path class="a" d="M14.246,23.248a3,3,0,0,0,3-3v-1.5a3,3,0,0,0-3-3Z"/>
+      <path class="a" d="M20.246,23.248v-6a1.5,1.5,0,0,1,1.5-1.5h1.5"/>
+      <line class="a" x1="20.246" y1="20.248" x2="22.496" y2="20.248"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-office-file-doc-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>office-file-doc-1</title>
+      <path class="a" d="M5.247,23.248h-3a1.5,1.5,0,0,1-1.5-1.5V2.248a1.5,1.5,0,0,1,1.5-1.5H12.876a1.5,1.5,0,0,1,1.061.439l5.871,5.872a1.5,1.5,0,0,1,.439,1.06v4.629"/>
+      <path class="a" d="M20.247,8.248h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <path class="a" d="M8.247,23.248a3,3,0,0,0,3-3v-1.5a3,3,0,0,0-3-3Z"/>
+      <path class="a" d="M15.747,15.748a1.5,1.5,0,0,0-1.5,1.5v4.5a1.5,1.5,0,1,0,3,0v-4.5A1.5,1.5,0,0,0,15.747,15.748Z"/>
+      <path class="a" d="M23.247,15.748a3,3,0,0,0-3,3v1.5a3,3,0,0,0,3,3"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-office-file-xls-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>office-file-xls-1</title>
+      <path class="a" d="M5.249,23.248h-3a1.5,1.5,0,0,1-1.5-1.5V2.248a1.5,1.5,0,0,1,1.5-1.5H12.878a1.5,1.5,0,0,1,1.06.439L19.81,7.059a1.5,1.5,0,0,1,.439,1.06v4.629"/>
+      <path class="a" d="M20.249,8.248h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <line class="a" x1="8.249" y1="15.748" x2="11.249" y2="23.248"/>
+      <line class="a" x1="11.249" y1="15.748" x2="8.249" y2="23.248"/>
+      <path class="a" d="M14.249,15.748v6a1.5,1.5,0,0,0,1.5,1.5h1.5"/>
+      <path class="a" d="M23.249,15.748h-1.5a1.5,1.5,0,0,0-1.5,1.5c0,2.25,3,2.25,3,4.5a1.5,1.5,0,0,1-1.5,1.5h-1.5"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-office-file-txt-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>office-file-txt-1</title>
+      <path class="a" d="M5.247,23.248h-3a1.5,1.5,0,0,1-1.5-1.5V2.248a1.5,1.5,0,0,1,1.5-1.5H12.876a1.5,1.5,0,0,1,1.06.439l5.872,5.872a1.5,1.5,0,0,1,.439,1.06v4.629"/>
+      <path class="a" d="M20.247,8.248h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <line class="a" x1="21.747" y1="23.248" x2="21.747" y2="15.748"/>
+      <line class="a" x1="20.247" y1="15.748" x2="23.247" y2="15.748"/>
+      <line class="a" x1="9.747" y1="23.248" x2="9.747" y2="15.748"/>
+      <line class="a" x1="8.247" y1="15.748" x2="11.247" y2="15.748"/>
+      <line class="a" x1="14.247" y1="15.748" x2="17.247" y2="23.248"/>
+      <line class="a" x1="17.247" y1="15.748" x2="14.247" y2="23.248"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-office-file-ppt-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>office-file-ppt-1</title>
+      <path class="a" d="M5.249,23.248h-3a1.5,1.5,0,0,1-1.5-1.5V2.248a1.5,1.5,0,0,1,1.5-1.5H12.878a1.5,1.5,0,0,1,1.061.439L19.81,7.059a1.5,1.5,0,0,1,.439,1.06v4.629"/>
+      <path class="a" d="M20.249,8.248h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <line class="a" x1="8.249" y1="23.248" x2="8.249" y2="15.748"/>
+      <path class="a" d="M8.249,15.748H9a2.25,2.25,0,0,1,0,4.5h-.75"/>
+      <line class="a" x1="14.249" y1="23.248" x2="14.249" y2="15.748"/>
+      <path class="a" d="M14.249,15.748H15a2.25,2.25,0,0,1,0,4.5h-.75"/>
+      <line class="a" x1="21.749" y1="23.248" x2="21.749" y2="15.748"/>
+      <line class="a" x1="20.249" y1="15.748" x2="23.249" y2="15.748"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-file-zip">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>file-zip</title>
+      <path class="a" d="M11.249,15.748h1.892a.75.75,0,0,1,.7,1.029L11.66,22.22a.749.749,0,0,0,.7,1.028h1.892"/>
+      <line class="a" x1="17.249" y1="23.248" x2="17.249" y2="15.748"/>
+      <line class="a" x1="20.249" y1="23.248" x2="20.249" y2="15.748"/>
+      <path class="a" d="M20.249,15.748H21a2.25,2.25,0,0,1,0,4.5h-.75"/>
+      <path class="a" d="M8.249,23.248h-6a1.5,1.5,0,0,1-1.5-1.5V2.248a1.5,1.5,0,0,1,1.5-1.5H12.877a1.5,1.5,0,0,1,1.061.439l5.871,5.872a1.5,1.5,0,0,1,.44,1.06v4.629"/>
+      <path class="a" d="M20.249,8.248h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-file-rar">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>file-rar</title><line class="a" x1="8.248" y1="23.248" x2="8.248" y2="15.748"/>
+      <path class="a" d="M8.248,15.748H9.373a1.875,1.875,0,0,1,0,3.75H8.248"/>
+      <line class="a" x1="11.248" y1="23.248" x2="8.998" y2="19.498"/>
+      <line class="a" x1="20.248" y1="23.248" x2="20.248" y2="15.748"/>
+      <path class="a" d="M20.248,15.748h1.125a1.875,1.875,0,0,1,0,3.75H20.248"/>
+      <line class="a" x1="23.248" y1="23.248" x2="20.998" y2="19.498"/>
+      <path class="a" d="M14.248,23.248v-6a1.5,1.5,0,0,1,3,0v6"/>
+      <line class="a" x1="14.248" y1="20.248" x2="17.248" y2="20.248"/>
+      <path class="a" d="M5.248,23.248h-3a1.5,1.5,0,0,1-1.5-1.5V2.248a1.5,1.5,0,0,1,1.5-1.5H12.877a1.5,1.5,0,0,1,1.06.439l5.872,5.872a1.5,1.5,0,0,1,.439,1.06v4.629"/>
+      <path class="a" d="M20.248,8.248h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-image-file-jpg">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>image-file-jpg</title>
+      <path class="a" d="M5.25,23.25h-3a1.5,1.5,0,0,1-1.5-1.5V2.25A1.5,1.5,0,0,1,2.25.75H12.879a1.5,1.5,0,0,1,1.06.439l5.872,5.872a1.5,1.5,0,0,1,.439,1.06V12.75"/>
+      <path class="a" d="M20.25,8.25h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <path class="a" d="M11.25,15.75v6a1.5,1.5,0,0,1-1.5,1.5H8.25"/>
+      <line class="a" x1="14.25" y1="23.25" x2="14.25" y2="15.75"/>
+      <path class="a" d="M14.25,15.75H15a2.25,2.25,0,0,1,0,4.5h-.75"/>
+      <path class="a" d="M22.5,20.25h.75v1.5a1.5,1.5,0,0,1-3,0v-4.5a1.5,1.5,0,0,1,1.5-1.5h1.5"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-image-file-gif">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>image-file-gif</title>
+      <path class="a" d="M8.25,23.25h-6a1.5,1.5,0,0,1-1.5-1.5V2.25A1.5,1.5,0,0,1,2.25.75H12.879a1.5,1.5,0,0,1,1.06.439l5.872,5.872a1.5,1.5,0,0,1,.439,1.06V12.75"/>
+      <path class="a" d="M20.25,8.25h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <path class="a" d="M20.25,23.25v-6a1.5,1.5,0,0,1,1.5-1.5h1.5"/>
+      <line class="a" x1="20.25" y1="20.25" x2="22.5" y2="20.25"/>
+      <line class="a" x1="17.25" y1="23.25" x2="17.25" y2="15.75"/>
+      <path class="a" d="M13.5,20.25h.75v1.5a1.5,1.5,0,0,1-3,0v-4.5a1.5,1.5,0,0,1,1.5-1.5h1.5"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-image-file-png">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>image-file-png</title>
+      <path class="a" d="M5.25,23.25h-3a1.5,1.5,0,0,1-1.5-1.5V2.25A1.5,1.5,0,0,1,2.25.75H12.879a1.5,1.5,0,0,1,1.06.439l5.872,5.872a1.5,1.5,0,0,1,.439,1.06V12.75"/>
+      <path class="a" d="M20.25,8.25h-6a1.5,1.5,0,0,1-1.5-1.5v-6"/>
+      <line class="a" x1="8.25" y1="23.25" x2="8.25" y2="15.75"/>
+      <path class="a" d="M8.25,15.75H9a2.25,2.25,0,0,1,0,4.5H8.25"/>
+      <polyline class="a" points="14.25 23.25 14.25 15.75 17.25 23.25 17.25 15.75"/>
+      <path class="a" d="M22.5,20.25h.75v1.5a1.5,1.5,0,0,1-3,0v-4.5a1.5,1.5,0,0,1,1.5-1.5h1.5"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-common-file-empty">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>common-file-empty</title>
+      <path class="a" d="M22.477,21.75a1.5,1.5,0,0,1-1.5,1.5H3.023a1.5,1.5,0,0,1-1.5-1.5V2.25a1.5,1.5,0,0,1,1.5-1.5h15a1.5,1.5,0,0,1,1.047.426l2.955,2.883a1.5,1.5,0,0,1,.452,1.074Z"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-folder-file">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>folder-file</title>
+      <path class="a" d="M17.25,23.25a1.5,1.5,0,0,0,1.5-1.5v-6a1.5,1.5,0,0,0-1.5-1.5h-9v-1.5a1.5,1.5,0,0,0-1.5-1.5H2.25a1.5,1.5,0,0,0-1.5,1.5v9a1.5,1.5,0,0,0,1.5,1.5Z"/>
+      <path class="a" d="M6.75,11.25v-9A1.5,1.5,0,0,1,8.25.75H18.879a1.5,1.5,0,0,1,1.06.439l2.872,2.872a1.5,1.5,0,0,1,.439,1.06V18.75a1.5,1.5,0,0,1-1.5,1.5h-3"/>
+      <line class="a" x1="11.25" y1="5.25" x2="18.75" y2="5.25"/>
+      <line class="a" x1="11.25" y1="9.75" x2="18.75" y2="9.75"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-multiple-users-wifi">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>multiple-users-wifi</title><path class="cls-1" d="M18,2.873a9.539,9.539,0,0,0-12,0"/>
+      <path class="cls-1" d="M8.5,6.488a5.566,5.566,0,0,1,7,0"/>
+      <circle class="cls-1" cx="3.375" cy="13.875" r="2.625"/>
+      <path class="cls-1" d="M7.514,19.983A4.5,4.5,0,0,0,.75,18.1"/>
+      <circle class="cls-1" cx="20.625" cy="13.875" r="2.625"/>
+      <path class="cls-1" d="M16.486,19.983A4.5,4.5,0,0,1,23.25,18.1"/>
+      <circle class="cls-1" cx="12" cy="13.125" r="3.375"/>
+      <path class="cls-1" d="M18,23.25a6.054,6.054,0,0,0-12,0"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-cash-payment-bag-1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>cash-payment-bag-1</title>
+      <path class="a" d="M15.4,11.25c.891.648,4.1,3.875,4.1,7.684,0,3.077-3.544,4.316-6.824,4.316S6,22.011,6,18.934C6,14.973,9.5,11.6,10.32,11.1"/>
+      <path class="a" d="M4.5,3.75H6.3c.27,0,.45.214.45.536v6.428c0,.322-.18.536-.45.536H4.5"/>
+      <path class="a" d="M10.4,2.621,9.155,4.371a1.391,1.391,0,0,1-1.034.517H6.75"/>
+      <path class="a" d="M6.75,9.384c2.042,1.105,3.267,1.866,4.494,1.866H15.4c1.04,0,1.231-.058,1.56-1.125C17.48,8.438,18,5.627,18,5.625c0-.562-.52-1.125-1.559-1.125l-5.027.02-1.6-2.989a.568.568,0,0,1,0-.52.46.46,0,0,1,.4-.261h5.818a.462.462,0,0,1,.405.261.566.566,0,0,1,0,.519L14.858,4.5"/>
+      <path class="a" d="M11.079,19.094a2.224,2.224,0,0,0,1.858.875c1.139,0,2.063-.693,2.063-1.547s-.924-1.546-2.063-1.546-2.062-.693-2.062-1.548.924-1.547,2.062-1.547a2.221,2.221,0,0,1,1.858.875"/>
+      <line class="a" x1="12.937" y1="19.969" x2="12.937" y2="21"/>
+      <line class="a" x1="12.937" y1="12.75" x2="12.937" y2="13.781"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-navigation-left-circle-1_1">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>navigation-left-circle-1_1</title>
+      <line class="a" x1="7.501" y1="11.997" x2="16.501" y2="11.997"/>
+      <polyline class="a" points="11.251 15.747 7.501 11.997 11.251 8.247"/>
+      <circle class="a" cx="12.001" cy="11.997" r="10.5"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-newspaper-fold">
+      <defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>newspaper-fold</title>
+      <path class="a" d="M23.25,6V20.25a2.25,2.25,0,0,1-4.5,0V3a1.5,1.5,0,0,0-1.5-1.5h-15A1.5,1.5,0,0,0,.75,3V20.25A2.25,2.25,0,0,0,3,22.5H21"/>
+      <line class="a" x1="4.5" y1="15" x2="15" y2="15"/><line class="a" x1="4.5" y1="18" x2="10.5" y2="18"/>
+      <rect class="a" x="4.5" y="5.25" width="10.5" height="6" rx="0.75" ry="0.75"/>
+    </symbol>
+
+    <symbol viewBox="0 0 24 24" id="icon-single-neutral-actions-remove">
+      <defs><style>.cls-1{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs>
+      <title>single-neutral-actions-remove</title><circle class="cls-1" cx="17.25" cy="17.247" r="6"/>
+      <line class="cls-1" x1="19.5" y1="14.997" x2="15" y2="19.497"/>
+      <line class="cls-1" x1="15" y1="14.997" x2="19.5" y2="19.497"/>
+      <circle class="cls-1" cx="6" cy="3.75" r="3"/>
+      <path class="cls-1" d="M10.555,10.888A5.251,5.251,0,0,0,.75,13.5v2.25H3l.75,7.5h4.5l.323-3.233"/>
+    </symbol>
+  </svg>
+
+    <div id="loading-bg">
+        <div class="loadingio-spinner-cube-m76dib0u8us">
+            <div class="ldio-70hwl0ihryg">
+                <div id="line-1">
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="line-2">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app">
+    </div>
+    <!-- built files will be auto injected -->
+</body>
+
+</html>
+
+<style type="text/css">
+    @keyframes ldio-70hwl0ihryg {
+        0% {
+            transform: scale(1.1500000000000001)
+        }
+        100% {
+            transform: scale(1)
+        }
+    }
+    
+    .ldio-70hwl0ihryg #line-1>div,
+    .ldio-70hwl0ihryg #line-2>div {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        background: #1c4595;
+        animation: ldio-70hwl0ihryg 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+        animation-delay: -0.3s;
+    }
+    
+    .ldio-70hwl0ihryg #line-1 div:nth-child(1) {
+        display: inline-block;
+        margin: 0 4px;
+    }
+    
+    .ldio-70hwl0ihryg #line-1 div:nth-child(2) {
+        display: inline-block;
+        margin: 0 4px;
+        background: #24c5e7;
+        animation-delay: -0.2s;
+    }
+    
+    .ldio-70hwl0ihryg #line-2 div:nth-child(1) {
+        display: inline-block;
+        margin: 0 4px;
+        background: #1aa740;
+        animation-delay: 0s;
+    }
+    
+    .ldio-70hwl0ihryg #line-2 div:nth-child(2) {
+        display: inline-block;
+        margin: 0 4px;
+        background: #e76a24;
+        animation-delay: -0.1s;
+    }
+    
+    .loadingio-spinner-cube-m76dib0u8us {
+        display: flex;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        /* z-index: 51001; */
+        /* Sit on top */
+        /* padding-top: 100px; */
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .ldio-70hwl0ihryg {
+        position: absolute;
+        margin: auto;
+    }
+    
+    .ldio-70hwl0ihryg div {
+        box-sizing: content-box;
+    }
+    /* generated by https://loading.io/ */
+    
+    #smallchat {
+        display: none;
+    }
+    
+    #tawkto {
+        display: none;
+    }
+    
+    #maximizeChat {
+        z-index: 4000 !important;
+    }
+</style>

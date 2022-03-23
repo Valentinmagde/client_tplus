@@ -1,0 +1,922 @@
+/*=========================================================================================
+    File Name: _misc.scss
+    Description: partial- misc styles
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+      Author: Pixinvent
+    Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+code {
+    font-family: $font-family-sans-serif;
+    background: #eee;
+    padding: 0.1rem .3rem;
+    border-radius: 3px;
+}
+
+.rm {
+    margin-left: 0 !important;
+}
+
+.left {
+    margin-top: 36px;
+    float: left;
+    width: 5%;
+    height: 120px;
+}
+
+.internal1 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 200px;
+    padding: 2px;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+    height: 93%;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.20);
+}
+
+.internal2 {
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+    height: 100%;
+}
+
+.internal .includeIcon {
+    text-align: center;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.center {
+    position: relative;
+    padding-left: 60px;
+    padding-right: 60px;
+    float: left;
+    text-align: center;
+    width: 89%;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-height: 130px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.right {
+    margin-top: 36px;
+    float: right;
+    width: 4%;
+    height: 120px;
+}
+
+.first-divider.vs-divider {
+    width: 100%;
+    border: 1px solid #cccccc;
+}
+
+.con-vs-chip {
+    min-height: 18px !important;
+    min-width: 26px;
+    font-size: 0.8rem;
+}
+
+.money-input {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.5rem !important;
+    font-size: 1rem !important;
+    color: #626262;
+    border-radius: 4px;
+}
+
+.empty-card {
+    background: #f8f8f8;
+    min-height: 100vh;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.text-muted {
+    color: #818a91;
+}
+
+.layout--full-page {
+    .bg-img {
+        background-image: -webkit-linear-gradient( 0deg, rgb(0, 122, 223) 0%, rgb(0, 236, 188) 100%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .full-page-bg-color {
+        background-color: #eff2f7;
+        border-radius: 5px;
+    }
+    ._translate {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .telephone {
+        height: 38px;
+    }
+    .bottom-translate {
+        margin-bottom: 10px;
+    }
+    .vs-list--item {
+        border-bottom: none;
+    }
+    .titre-association {
+        font-size: .85rem;
+        text-align: center;
+    }
+    .selectCountry {
+        height: 38px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        font-size: .85rem;
+        color: rgba(0, 0, 0, .7);
+    }
+    .select-timezone {
+        height: 38px;
+    }
+    .telephone {
+        height: 38px;
+        font-size: .85rem !important;
+    }
+    .text-gray-500 {
+        color: #a0aec0;
+    }
+    .file-upload .input-wrapper {
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        height: 60px !important;
+        border-radius: 5px;
+    }
+    .file-upload .input-wrapper:hover {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+    .file-upload .input-wrapper .file-upload-label {
+        color: rgba(0, 0, 0, 0.5) !important;
+        font-size: 12px !important;
+    }
+    .vs__selected-options {
+        overflow: hidden;
+        height: 35px;
+        white-space: nowrap;
+    }
+    .v-select .vs__dropdown-toggle .vs__search {
+        color: rgba(0, 0, 0, .4);
+        ;
+        font-size: .85rem;
+    }
+    .vs-con-textarea {
+        height: 60px;
+        font-size: .85rem !important;
+    }
+    .vs-con-textarea h4 {
+        font-size: .85rem;
+        color: rgba(0, 0, 0, 0.4);
+    }
+    .vdp-datepicker input {
+        color: rgba(0, 0, 0, 0.4);
+        font-size: .85rem;
+        font-weight: normal !important;
+    }
+    .link-color {
+        color: #3EB2FB;
+        margin-left: 3px;
+    }
+    .swiper-slide-active {
+        width: 100% !important;
+    }
+    .vx-card .vx-card__collapsible-content .vx-card__body {
+        padding: 0;
+    }
+    .vx-card .p-as {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .vs-chip-link {
+        color: #626262 !important;
+        font-size: 12px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        margin-top: -32px;
+        margin-left: -5px;
+        margin-right: -5px;
+        position: absolute;
+        top: 50%;
+        width: 27px;
+        height: 20px;
+        z-index: 10;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.20);
+    }
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+        background-color: rgba(0, 0, 0, 0.02) !important;
+    }
+    [dir] .swiper-button-next,
+    [dir] .swiper-button-prev {
+        padding: 17px;
+        background-size: 30% 30%;
+    }
+    .con-input-upload {
+        background: #f5f5f5;
+        width: 100%;
+        height: 80px;
+        margin: 0;
+        font-size: 0.85rem;
+        color: rgba(0, 0, 0, 0.4);
+    }
+    .con-img-upload {
+        padding: 0;
+        height: 80px;
+    }
+    .con-img-upload .img-upload {
+        margin: 0;
+    }
+    .con-img-upload .img-upload {
+        width: 100%;
+        height: 80px;
+        cursor: pointer;
+    }
+    .ant-upload-select-picture-card i {
+        font-size: 32px;
+        color: #999;
+    }
+    .ant-upload-select-picture-card .ant-upload-text {
+        margin-top: 8px;
+        color: #666;
+    }
+    .ant-upload {
+        width: 100%;
+        height: 80px;
+    }
+    .ant-upload.ant-upload-select-picture-card {
+        display: table;
+        width: 100%;
+        height: 80px;
+        vertical-align: top;
+        transition: border-color 0.3s ease;
+    }
+    .vx-card .vx-card__collapsible-content img {
+        display: block;
+        // width: auto;
+    }
+    @media (min-width: 1528px) {
+        .vx-content {
+            width: 27%;
+        }
+    }
+    @media (max-width: 1527px) {
+        .vx-content {
+            width: 35%;
+        }
+    }
+    @media (max-width: 1276px) {
+        .vx-content {
+            width: 40%;
+        }
+    }
+    @media (max-width: 992px) {
+        .vx-content {
+            width: 60% !important;
+        }
+    }
+    @media (max-width: 772px) {
+        .vx-content {
+            width: 60%;
+        }
+    }
+    @media (max-width: 646px) {
+        .vx-content {
+            width: 65%;
+        }
+    }
+    @media (max-width: 576px) {
+        .vx-content {
+            width: 70%;
+        }
+    }
+    @media (max-width: 519px) {
+        .vx-content {
+            width: 80%;
+        }
+    }
+    @media (max-width: 467px) {
+        .vx-content {
+            width: 90%;
+        }
+    }
+}
+
+.single-counter {
+    display: inline-block;
+    position: relative;
+    width: 105px;
+    padding: 18px 10px 10px;
+    span {
+        display: block;
+        text-align: center;
+    }
+    .timer {
+        font-size: 3rem;
+    }
+}
+
+.chat-card-log {
+    height: 240px;
+}
+
+// ======================================================================================
+// Video.js
+// ======================================================================================
+.vjs-poster {
+    background-size: cover !important;
+    width: 100% !important;
+}
+
+// ======================================================================================
+// Spinner
+// ======================================================================================
+// .spinner {
+//   animation: spin 1.5s linear infinite;
+// }
+
+/*! rtl:begin:ignore */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*! rtl:end:ignore */
+
+// ======================================================================================
+// Feather - Font Icon
+// ======================================================================================
+i.feather {
+    font-weight: 100;
+}
+
+.feather.feather-menu {
+    z-index: 9;
+}
+
+// ======================================================================================
+// Perfect Scrollbar
+// ======================================================================================
+.scroll-area {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.bloc-120c {
+    width: 80%;
+    max-width: 120px;
+    margin: auto;
+}
+
+$logo_size:120px;
+$logo_shadow: 0 10px 30px 0 rgba(1, 187, 154, 0.56);
+.tplogo {
+    -webkit-box-shadow: $logo_shadow;
+    box-shadow: $logo_shadow;
+    display: block;
+    margin: 0 auto;
+    width: $logo_size;
+    height: $logo_size;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50%;
+    padding-top: 1rem;
+}
+
+.tpimg-circle {
+    height: 0;
+    width: 100%;
+    max-width: 120px;
+    display: block;
+    padding: calc(50% - 2px) 0;
+    line-height: 0;
+    border-radius: 50%;
+    background-size: cover;
+    background-image: url("../images/pages/media.png");
+    background-position: 50%;
+    border: solid 1px #ccc;
+    box-shadow: 0 10px 30px 0 rgba(1, 187, 154, 0.56);
+    transition: all 0.2s ease-in;
+}
+
+.circular {
+    height: 0;
+    width: 100%;
+    max-width: 120px;
+    display: block;
+    padding: calc(50% - 2px) 0;
+    line-height: 0;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50%;
+    border: solid 1px #ccc;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.2s ease-in;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 51001;
+    /* Sit on top */
+    /* padding-top: 100px; */
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Black w/ opacity */
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Modal Content (image) */
+
+.modal-content {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    margin: auto;
+    object-fit: contain;
+}
+
+
+/* Caption of Modal Image */
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+
+/* Add Animation */
+
+.modal-content,
+#caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.vuesax-app-is-ltr .vs-chip--text {
+    margin-left: 10px;
+    min-width: max-content;
+}
+
+#data-list-list-view {
+    .vs-con-table {
+        /*
+        Below media-queries is fix for responsiveness of action buttons
+        Note: If you change action buttons or layout of this page, Please remove below style
+      */
+        @media (max-width: 689px) {
+            .vs-table--search {
+                margin-left: 0;
+                max-width: unset;
+                width: 100%;
+                .vs-table--search-input {
+                    width: 100%;
+                }
+            }
+        }
+        @media (max-width: 461px) {
+            .items-per-page-handler {
+                display: none;
+            }
+        }
+        @media (max-width: 341px) {
+            .data-list-btn-container {
+                width: 100%;
+                .dd-actions,
+                .btn-add-new {
+                    width: 100%;
+                    margin-right: 0 !important;
+                }
+            }
+        }
+        .product-name {
+            min-width: max-content;
+            max-width: 15rem;
+        }
+
+        .product-category {
+            min-width: max-content;
+            max-width: 15rem;
+        }
+        .vs-table--header {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+            >span {
+                display: flex;
+                flex-grow: 1;
+            }
+            .vs-table--search {
+                padding-top: 0;
+                .vs-table--search-input {
+                    padding: 0.9rem 2.5rem;
+                    font-size: 1rem;
+                    &+i {
+                        left: 1rem;
+                    }
+                    &:focus+i {
+                        left: 1rem;
+                    }
+                }
+            }
+        }
+        .vs-table {
+            border-collapse: separate;
+            border-spacing: 0 1.3rem;
+            padding: 0 1rem;
+            tr {
+                box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .05);
+                td {
+                    padding: 20px;
+                    min-width: max-content;
+                    &:first-child {
+                        border-top-left-radius: .5rem;
+                        border-bottom-left-radius: .5rem;
+                    }
+                    &:last-child {
+                        border-top-right-radius: .5rem;
+                        border-bottom-right-radius: .5rem;
+                    }
+                }
+                td.td-check {
+                    padding: 20px !important;
+                }
+            }
+        }
+        .vs-table--thead {
+            th {
+                padding-top: 0;
+                padding-bottom: 0;
+                .vs-table-text {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                }
+            }
+            th.td-check {
+                padding: 0 15px !important;
+            }
+            tr {
+                background: none;
+                box-shadow: none;
+            }
+        }
+        .vs-table--tbody {
+            z-index: 10 !important;
+        }
+        .vs-table--pagination {
+            justify-content: center;
+        }
+    }
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+    z-index: 1001;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    -webkit-animation: spin 3s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    -webkit-animation: spin 1.5s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.5s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #222222;
+    z-index: 1000;
+    -webkit-transform: translateX(0);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(0);
+    /* IE 9 */
+    transform: translateX(0);
+    /* Firefox 16+, IE 10+, Opera */
+}
+
+#loader-wrapper .loader-section.section-left {
+    left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+    right: 0;
+}
+
+
+/* Loaded */
+
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(-100%);
+    /* IE 9 */
+    transform: translateX(-100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(100%);
+    /* IE 9 */
+    transform: translateX(100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateY(-100%);
+    /* IE 9 */
+    transform: translateY(-100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.3s 1s ease-out;
+    transition: all 0.3s 1s ease-out;
+}
+
+
+/* JavaScript Turned Off */
+
+.no-js #loader-wrapper {
+    display: none;
+}
+
+.no-js h1 {
+    color: #222222;
+}
+
+.card-shadow {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1) !important;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.text-size {
+    font-size: 18px;
+}
+
+@media (max-width: 1200px) {
+    .text-size {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .text-size {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 740px) {
+    .text-size {
+        font-size: 13px;
+    }
+}
+
+.customer-align .vs-table-text {
+    text-align: right;
+    display: block
+}
+
+.redtextclass {
+    color: #FF0000;
+}
+
+.select-member-btn {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+.wallet-layout {
+    width: 70rem;
+    min-height: 740px;
+    background: #f8f8f8;
+    padding: 0 10px 0 10px;
+}
+
+.vue-monthly-picker .date-popover {
+    max-width: 322px !important;
+    bottom: 37px;
+    border-radius: 5px;
+    border: none !important;
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1) !important;
+    /* position: fixed !important; */
+}
+
+.vue-monthly-picker .picker .monthItem .item {
+    border-top: none !important;
+}
+
+[dir] div.item {
+    margin: 0 !important;
+}
+
+.vs-con-table table {
+    min-width: max-content;
+}
+
+.ellipsis {
+    width: 20rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
